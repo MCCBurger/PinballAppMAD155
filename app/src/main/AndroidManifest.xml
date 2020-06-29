@@ -16,7 +16,7 @@
             android:name=".PinballDirectory"
             android:label="@string/title_activity_pinball_directory"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CardViewDirectory" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

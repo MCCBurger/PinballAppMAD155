@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
-    private val titles = arrayOf("TMNT","Hot Wheels","Willy Wonka")
-    private val details = arrayOf("Stern Pinball", "American Pinball", "Jersey Jack Pinball")
-    private val images = intArrayOf(R.drawable.tmnt,R.drawable.hotwheels,R.drawable.willy)
+    private val titles = arrayOf("TMNT","Hot Wheels","Rick and Morty","Willy Wonka","Jurassic Park","Indiana Jones")
+    private val details = arrayOf("Stern Pinball: Released 2020", "American Pinball: Released 2020", "Spooky Pinball: Released 2020","Jersey Jack Pinball: Released 2019" ,"Stern Pinball: Released: 2019", "Williams Pinball: Released 1993")
+    private val images = intArrayOf(R.drawable.tmntb,R.drawable.hotwheels,R.drawable.rick,R.drawable.willy,R.drawable.jurassic,R.drawable.jones)
 
     inner class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
         var itemImage:ImageView
