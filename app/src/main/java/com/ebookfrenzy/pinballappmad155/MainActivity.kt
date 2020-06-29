@@ -1,5 +1,6 @@
 package com.ebookfrenzy.pinballappmad155
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
                 addToBackStack(null)
                 commit()
             }
+        }
+
+        btnDirectory.setOnClickListener {
+            val  intent = Intent(this,PinballDirectory::class.java)
+                    startActivity (intent)
         }
 
     }
