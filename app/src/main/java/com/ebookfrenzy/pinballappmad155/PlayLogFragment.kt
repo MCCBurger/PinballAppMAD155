@@ -60,18 +60,16 @@ class PlayLogFragment : Fragment() {
             val day = cal.get(Calendar.DAY_OF_MONTH)
 
             val dateOfPlay = DatePickerDialog(requireContext(),DatePickerDialog.OnDateSetListener{ view, myear, mMonth, mday ->
-                pckDatePlayed.setText("$myear/${mMonth+1}/$mday")
+                pckDatePlayed.text = "$myear/${mMonth+1}/$mday"
             selectedDate = "$myear/${mMonth+1}/$mday"},year,month,day)
 
             dateOfPlay.show()
         }
 
 
-
-
         btnSave.setOnClickListener {
             val name = editTextName.text.toString()
-            val date = selectedDate.toString()
+            val date = selectedDate
             val score = editTextScore.text.toString()
             val rating = ratingBar!!.rating.toString()
 
@@ -79,7 +77,7 @@ class PlayLogFragment : Fragment() {
             listViewItems.adapter = ArrayAdapter(requireActivity().baseContext,android.R.layout.simple_list_item_1,list)
             editTextName.setText("")
             selectedDate=""
-            pckDatePlayed.setText("")
+            pckDatePlayed.text = ""
             editTextScore.setText("")
             ratingBar.rating = 0F
 
