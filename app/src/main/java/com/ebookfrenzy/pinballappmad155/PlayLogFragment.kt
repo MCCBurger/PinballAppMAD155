@@ -1,17 +1,16 @@
 package com.ebookfrenzy.pinballappmad155
 
-import android.app.Activity
-import android.content.Context
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.DatePicker
+import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_play_log.*
-import android.widget.AdapterView.OnItemClickListener
-import androidx.fragment.app.FragmentActivity
+import java.util.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -38,6 +37,7 @@ class PlayLogFragment : Fragment() {
 
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,17 +51,35 @@ class PlayLogFragment : Fragment() {
 
         val list = arrayListOf<String>()
 
+        var selectedDate=""
+
+        pckDatePlayed.setOnClickListener {
+            val cal  = Calendar.getInstance()
+            val year = cal.get(Calendar.YEAR)
+            val month = cal.get(Calendar.MONTH)
+            val day = cal.get(Calendar.DAY_OF_MONTH)
+
+            val dateOfPlay = DatePickerDialog(requireContext(),DatePickerDialog.OnDateSetListener{ view, myear, mMonth, mday ->
+                pckDatePlayed.setText("$myear/${mMonth+1}/$mday")
+            selectedDate = "$myear/${mMonth+1}/$mday"},year,month,day)
+
+            dateOfPlay.show()
+        }
+
+
+
 
         btnSave.setOnClickListener {
             val name = editTextName.text.toString()
-            val date = editTextDate.text.toString()
+            val date = selectedDate.toString()
             val score = editTextScore.text.toString()
             val rating = ratingBar!!.rating.toString()
 
             list.add("$name   $date   $score  $rating")
-            listViewItems.adapter = ArrayAdapter(activity!!.baseContext,android.R.layout.simple_list_item_1,list)
+            listViewItems.adapter = ArrayAdapter(requireActivity().baseContext,android.R.layout.simple_list_item_1,list)
             editTextName.setText("")
-            editTextDate.setText("")
+            selectedDate=""
+            pckDatePlayed.setText("")
             editTextScore.setText("")
             ratingBar.rating = 0F
 

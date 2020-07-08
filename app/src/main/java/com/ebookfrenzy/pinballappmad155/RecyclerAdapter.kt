@@ -43,7 +43,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
                             website = "www.google.com"
                         }
 
-
                     }
                  val open = Intent(Intent.ACTION_VIEW)
                     open.data = Uri.parse(website)

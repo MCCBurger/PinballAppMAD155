@@ -6,7 +6,7 @@
     <string name="find_location">Find Location</string>
     <string name="play_log">Play Log</string>
     <string name="machine">Machine</string>
-    <string name="date">Date</string>
+    <string name="date">Date Played</string>
     <string name="score">Score</string>
     <string name="save">SAVE</string>
     <string name="title_activity_pinball_directory">PinballDirectory</string>
